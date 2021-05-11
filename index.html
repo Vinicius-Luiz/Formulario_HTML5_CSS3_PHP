@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id = "titulo">Cadastro</h1>
+        <p id = "subtitulo">Complete as informações do jogador</p>
+        <br>
+    </header>
+
+    <form>
+        <fieldset class = 'grupo'> <!--Agrupador de campos-->
+            <div class = "campo">
+                <label for="nome"><strong>Nome</strong></label><!--Título do campo-->
+                <input type = "text" id = "nome" name="nome" required> <!--required = Obrigatório-->
+            </div>
+            <div class = "campo">
+                <label for="sobrenome"><strong>Sobrenome</strong></label>
+                <input type = "text" id = "sobrenome" name = "sobrenome" required>
+            </div>
+        </fieldset>
+
+        <div class = "campo">
+            <label for="email"><strong>E-mail</strong></label>
+            <input type = "email" id = "email "name = "email" required> <!--Existe tipo email-->
+        </div>
+        
+        <div class = "campo">
+            <label><strong>Categoria</strong></label><br>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-8" checked>Sub-8  <!--checked = Deixa opção marcada por padrão-->
+            </label>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-10">Sub-10
+            </label>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-12">Sub-12
+            </label>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-14">Sub-14
+            </label>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-16">Sub-16
+            </label>
+            <label>
+                <input type = "radio" name = "devweb" value = "sub-18">Sub-18
+            </label>
+        </div>
+
+        <div class = "campo">
+            <label for = "num"><strong>Número</strong></label>
+            <select id = 'num'>
+                <option selected disabled value="">Selecione</option> <!--Pre selecionado; desabilitado e sem valor-->
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+            </select>
+        </div>
+       
+        <fieldset class="grupo">
+            <div id = "check">
+                <label><strong>Selecione as posições em que você atua</strong></label><br>
+                <input type="checkbox" id = 'posicao1' name = 'posicao1' value = 'goleiro'> <!--Selecionar múltiplas opções-->
+                <label for="posicao1">Goleiro</label><br>
+                <input type="checkbox" id = 'posicao2' name = 'posicao2' value = 'zagueiro'>
+                <label for="posicao1">Zagueiro</label><br>
+                <input type="checkbox" id = 'posicao3' name = 'posicao3' value = 'lateral-esq'>
+                <label for="posicao1">Lateral Esquerdo</label><br>
+                <input type="checkbox" id = 'posicao4' name = 'posicao4' value = 'lateral-dir'>
+                <label for="posicao1">Lateral Direitoo</label><br>
+                <input type="checkbox" id = 'posicao5' name = 'posicao5' value = 'volante'>
+                <label for="posicao1">Volante</label><br>
+                <input type="checkbox" id = 'posicao6' name = 'posicao6' value = 'meia-central'>
+                <label for="posicao1">Meia Central</label><br>
+                <input type="checkbox" id = 'posicao7' name = 'posicao7' value = 'meia-armador'>
+                <label for="posicao1">Meia Armador</label><br>
+                <input type="checkbox" id = 'posicao8' name = 'posicao8' value = 'meia-atacante'>
+                <label for="posicao1">Meia Atacante</label><br>
+                <input type="checkbox" id = 'posicao9' name = 'posicao9' value = 'ponta-esq'>
+                <label for="posicao1">Ponta Esquerda</label><br>
+                <input type="checkbox" id = 'posicao10' name = 'posicao10' value = 'ponta-dir'>
+                <label for="posicao1">Ponta Direita</label><br>
+                <input type="checkbox" id = 'posicao11' name = 'posicao11' value = 'segundo-atacante'>
+                <label for="posicao1">Segundo Atacante</label><br>
+                <input type="checkbox" id = 'posicao12' name = 'posicao12' value = 'centroavante'>
+                <label for="posicao1">Centroavante</label><br>
+            </div>
+        </fieldset>
+
+        <div class = "campo">
+            <br>
+            <label><strong>Descreva mais sobre suas características</strong></label>
+            <textarea name="caracteristicas" id="caracteristicas" rows="6" style="width: 26em;"></textarea>
+        </div>
+
+        <button class = "botao" type = "submit">Enviar</button>
+    </form>
+</body>
+</html>
