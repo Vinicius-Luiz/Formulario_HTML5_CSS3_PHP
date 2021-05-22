@@ -19,5 +19,24 @@
 > `$email = $_POST['email'];`  
 >
 > `[...]`  
+
+> **Implementando técnicas de validação de dados**
 >
-> 
+> Foi utilizado tecnicas de validação de dados para filtrar os dados indesejados no sistema, como por exemplo, dados numéricos em campos como *nome* e *sobrenome*, além de verificar se determinados campos estão vazios.
+>
+> >  `if (is_numeric($_POST['nome'])){ `  
+> >
+> >  ` echo 'ERRO: Sessão "Nome" não pode ser numérico';`  
+> >
+> > `  return;`  
+> >
+> > `}`  
+>
+> > `else if (empty($_POST['numero'])){`  
+> >
+> > `  echo 'ERRO: Sessão "Número" está vazia';`  
+> >
+> > `  return;`  
+> >
+> > `}`  
+
