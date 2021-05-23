@@ -1,46 +1,58 @@
 <?php
+session_start();
+
 if (is_numeric($_POST['nome'])){
-    echo 'ERRO: Sessão "Nome" não pode ser numérico';
+    //Array associativo, associa um valor a uma chave 
+    $_SESSION['mensagem_erro_nome'] = 'Sessão "Nome" não pode ser numérico'; 
+    header('location: index.php');
     return;
 }
 
 else if (is_numeric($_POST['sobrenome'])){
-    echo 'ERRO: Sessão "Sobrenome" não pode ser numérico';
+    $_SESSION['mensagem_erro_sobrenome'] = 'Sessão "Sobrenome" não pode ser numérico'; 
+    header('location: index.php');
     return;
 }
 
 else if (strlen($_POST['nome']) < 3){
-    echo 'ERRO: Sessão "Nome" muito curta';
+    $_SESSION['mensagem_erro_nome'] = 'Sessão "Nome" muito curta'; 
+    header('location: index.php');
     return;
 }
 
 else if (strlen($_POST['nome']) > 15){
-    echo 'ERRO: Sessão "Nome" muito longa';
+    $_SESSION['mensagem_erro_nome'] = 'Sessão "Nome" muito longa'; 
+    header('location: index.php');
     return;
 }
 
 if (strlen($_POST['sobrenome']) < 3){
-    echo 'ERRO: Sessão " Sobrenome" muito curta';
+    $_SESSION['mensagem_erro_sobrenome'] = 'Sessão " Sobrenome" muito curta'; 
+    header('location: index.php');
     return;
 }
 
 else if (strlen($_POST['sobrenome']) > 15){
-    echo 'ERRO: Sessão "Sobrenome" muito longa';
+    $_SESSION['mensagem_erro_sobrenome'] = 'Sessão "Sobrenome" muito longa'; 
+    header('location: index.php');
     return;
 }
 
 else if (empty($_POST['numero'])){
-    echo 'ERRO: Sessão "Número" está vazia';
+    $_SESSION['mensagem_erro_numero'] = 'Sessão "Número" está vazia'; 
+    header('location: index.php');
     return;
 }
 
 else if (empty($_POST['posicao'])){
-    echo 'ERRO: Sessão "Posição" está vazia';
+    $_SESSION['mensagem_erro_posicao'] = 'Sessão "Posição" está vazia'; 
+    header('location: index.php');
     return;
 }
 
 else if (empty($_POST['caracteristicas'])){
-    echo 'ERRO: Sessão "Características" está vazia';
+    $_SESSION['mensagem_erro_caracteristicas'] = 'Sessão "Características" está vazia'; 
+    header('location: index.php');
     return;
 }
 
@@ -50,11 +62,9 @@ else {
     $email = $_POST['email'];
     $idade = $_POST['idade'];
     $numero = $_POST['numero'];
-    $posicao = $_POST['posicao'];
+    $posicao = $_POST['posicao']; //Array numérico
     $posicaoStr = implode(' / ', $posicao);
     $caracteristicas = $_POST['caracteristicas'];
-    $categoria = Null; 
-
 }
 
 //is_numeric() função para saber se str possui números

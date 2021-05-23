@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,10 +22,27 @@
             <div class = "campo">
                 <label for="nome"><strong>Nome</strong></label><!--Título do campo-->
                 <input type = "text" id = "nome" name="nome" required> <!--required = Obrigatório-->
+                <div class = "mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
+                    <?php
+                        $mensagemErro = isset($_SESSION['mensagem_erro_nome']) ? $_SESSION['mensagem_erro_nome'] : '';
+                        //se if == True; então (?) ; senão (:)
+                        if (!empty($mensagemErro)){
+                            echo $mensagemErro;
+                        }
+                    ?>
+                </div>
             </div>
             <div class = "campo">
                 <label for="sobrenome"><strong>Sobrenome</strong></label>
                 <input type = "text" id = "sobrenome" name = "sobrenome" required>
+                <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
+                    <?php 
+                        $mensagemErro = isset($_SESSION['mensagem_erro_sobrenome']) ? $_SESSION['mensagem_erro_sobrenome'] : '';
+                        if (!empty($mensagemErro)){
+                            echo $mensagemErro;
+                        }
+                    ?>
+                </div>
             </div>
         </fieldset>
 
@@ -84,8 +104,15 @@
                 <option>25</option>
                 <option>26</option>
                 <option>27</option>
-                
             </select>
+            <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
+                    <?php 
+                        $mensagemErro = isset($_SESSION['mensagem_erro_numero']) ? $_SESSION['mensagem_erro_numero'] : '';
+                        if (!empty($mensagemErro)){
+                            echo $mensagemErro;
+                        }
+                    ?>
+            </div>
         </div>
        
         <fieldset class="grupo">
@@ -116,12 +143,28 @@
                 <input type="checkbox" id = 'posicao12' name = 'posicao[]' value = 'centroavante'>
                 <label for="posicao1">Centroavante</label><br>
             </div>
+            <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
+                    <?php 
+                        $mensagemErro = isset($_SESSION['mensagem_erro_posicao']) ? $_SESSION['mensagem_erro_posicao'] : '';
+                        if (!empty($mensagemErro)){
+                            echo $mensagemErro;
+                        }
+                    ?>
+                </div>
         </fieldset>
 
         <div class = "campo">
             <br>
             <label><strong>Descreva mais sobre suas características</strong></label>
             <textarea name="caracteristicas" id="caracteristicas" rows="6" style="width: 26em;"></textarea>
+            <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px">
+                    <?php 
+                        $mensagemErro = isset($_SESSION['mensagem_erro_caracteristicas']) ? $_SESSION['mensagem_erro_caracteristicas'] : '';
+                        if (!empty($mensagemErro)){
+                            echo $mensagemErro;
+                        }
+                    ?>
+            </div>
         </div>
 
         <button class = "botao" type = "submit">Enviar</button>
