@@ -6,11 +6,11 @@
 
 body {
     background: linear-gradient(rgba(0,0,0,.70), rgba(0,0,0)100%), url('bg.jpg');
+    color: #F9F9F9;
     display: flex;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
     align-items: center;
-    color: #F9F9F9;
 }
 
 header {

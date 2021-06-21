@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include "servicos/mensagens.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,16 +16,16 @@
         <p id = "subtitulo">Complete as informações do jogador</p>
         <br>
     </header>
-
-    <form action = "script.php" method = "POST"> <!--action descreve qual arquivo/endereço/rota eu quero submeter os dados / method descreve o tipo do envio que o formulário tenha-->
+    <form action = "servicos/cadastro.php" method = "POST"> <!--action descreve qual arquivo/endereço/rota eu quero submeter os dados / method descreve o tipo do envio que o formulário tenha-->
         <fieldset class = 'grupo'> <!--Agrupador de campos-->
             <div class = "campo">
                 <label for="nome"><strong>Nome</strong></label><!--Título do campo-->
                 <input type = "text" id = "nome" name="nome" required> <!--required = Obrigatório-->
                 <div class = "mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
                     <?php
-                        $mensagemErro = isset($_SESSION['mensagem_erro_nome']) ? $_SESSION['mensagem_erro_nome'] : '';
-                        //se if == True; então (?) ; senão (:)
+                        $mensagemErro = getMessage('nome');
+                        /*se if == True; então (?) ; senão (:)
+                        $mensagemErro = isset($_SESSION['mensagem_erro_nome']) ? $_SESSION['mensagem_erro_nome'] : ''*/
                         if (!empty($mensagemErro)){
                             echo $mensagemErro;
                         }
@@ -37,7 +37,7 @@
                 <input type = "text" id = "sobrenome" name = "sobrenome" required>
                 <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
                     <?php 
-                        $mensagemErro = isset($_SESSION['mensagem_erro_sobrenome']) ? $_SESSION['mensagem_erro_sobrenome'] : '';
+                        $mensagemErro = getMessage('sobrenome');
                         if (!empty($mensagemErro)){
                             echo $mensagemErro;
                         }
@@ -107,7 +107,7 @@
             </select>
             <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
                     <?php 
-                        $mensagemErro = isset($_SESSION['mensagem_erro_numero']) ? $_SESSION['mensagem_erro_numero'] : '';
+                        $mensagemErro = getMessage('numero');
                         if (!empty($mensagemErro)){
                             echo $mensagemErro;
                         }
@@ -145,7 +145,7 @@
             </div>
             <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px;">
                     <?php 
-                        $mensagemErro = isset($_SESSION['mensagem_erro_posicao']) ? $_SESSION['mensagem_erro_posicao'] : '';
+                        $mensagemErro = getMessage('posicao');
                         if (!empty($mensagemErro)){
                             echo $mensagemErro;
                         }
@@ -159,7 +159,7 @@
             <textarea name="caracteristicas" id="caracteristicas" rows="6" style="width: 26em;"></textarea>
             <div class="mensagem-erro" style = "color: #D64040; border-left: 3px solid #D64040; padding-left: 5px; margin-top: 5px">
                     <?php 
-                        $mensagemErro = isset($_SESSION['mensagem_erro_caracteristicas']) ? $_SESSION['mensagem_erro_caracteristicas'] : '';
+                        $mensagemErro = getMessage('caracteristicas');
                         if (!empty($mensagemErro)){
                             echo $mensagemErro;
                         }
